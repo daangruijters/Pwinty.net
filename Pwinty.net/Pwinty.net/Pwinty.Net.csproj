@@ -12,7 +12,7 @@
     <PackageProjectUrl></PackageProjectUrl>
     <RepositoryUrl>https://github.com/daangruijters/pwinty.net</RepositoryUrl>
     <Company />
-    <Description>C# wrapper for the Pwinty API.</Description>
+    <Description>C# wrapper for the Pwinty API. Supports the latest version of the API (v3)</Description>
     <PackageTags>pwinty;prodigi;on-demand;print;api</PackageTags>
     <NeutralLanguage>en</NeutralLanguage>
   </PropertyGroup>
