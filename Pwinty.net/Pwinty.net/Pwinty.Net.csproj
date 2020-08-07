@@ -5,10 +5,24 @@
     <RootNamespace>Pwinty.Net</RootNamespace>
     <AssemblyName>Pwinty.Net</AssemblyName>
     <UserSecretsId>dd147e4c-6185-4f6f-8a54-a139a2bec504</UserSecretsId>
+    <PackageIcon>pwinty-logo.png</PackageIcon>
+    <Version>0.1.0</Version>
+    <Authors>daangruijters</Authors>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageProjectUrl></PackageProjectUrl>
+    <RepositoryUrl>https://github.com/daangruijters/pwinty.net</RepositoryUrl>
+    <Company />
+    <Description>C# wrapper for the Pwinty API.</Description>
+    <PackageTags>pwinty;prodigi;on-demand;print;api</PackageTags>
+    <NeutralLanguage>en</NeutralLanguage>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="stylecop.json" />
+    <None Include="pwinty-logo.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
