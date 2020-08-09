@@ -9,16 +9,22 @@
     <Version>3.0.1</Version>
     <Authors>daangruijters</Authors>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageProjectUrl></PackageProjectUrl>
+    <PackageProjectUrl>https://www.pwinty.com/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/daangruijters/pwinty.net</RepositoryUrl>
     <Company />
     <Description>C# wrapper for the Pwinty API. Supports the latest version of the API (v3)</Description>
     <PackageTags>pwinty;prodigi;on-demand;print;api</PackageTags>
     <NeutralLanguage>en</NeutralLanguage>
+    <PackageLicenseExpression></PackageLicenseExpression>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="stylecop.json" />
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
     <None Include="pwinty-logo.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
