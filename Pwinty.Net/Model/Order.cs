@@ -18,7 +18,7 @@
         /// <param name="dto">Dto to base the order on.</param>
         internal Order(OrderDto dto)
         {
-            this.ID = dto.ID;
+            this.Id = dto.Id;
             this.CanCancel = dto.CanCancel;
             this.CanHold = dto.CanHold;
             this.CanUpdateShipping = dto.CanUpdateShipping;
@@ -50,7 +50,7 @@
         /// <summary>
         /// Gets or sets the ID of the order.
         /// </summary>
-        public int ID { get; set; }
+        public int Id { get; set; }
 
         /// <summary>
         /// Gets a value indicating whether the order can be cancelled (depends on fulfilment partner and status

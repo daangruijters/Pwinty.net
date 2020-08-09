@@ -9,7 +9,7 @@ namespace Pwinty.Net.DTO
 
     internal class OrderDto
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
         public bool CanCancel { get; set; }
         public bool CanHold { get; set; }
         public bool CanUpdateShipping { get; set; }

@@ -103,7 +103,7 @@
                 throw new ArgumentNullException(nameof(order), $"{nameof(order)} is null.");
             }
 
-            var request = new RestRequest($"orders/{order.ID}", Method.PUT);
+            var request = new RestRequest($"orders/{order.Id}", Method.PUT);
 
             request.AddJsonBody(order);
 
