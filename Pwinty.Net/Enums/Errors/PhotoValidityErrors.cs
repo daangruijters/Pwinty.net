@@ -6,7 +6,7 @@
     /// Reasons why a photo is invalid.
     /// </summary>
     [Flags]
-    public enum PhotoValidityErrors : short
+    public enum PhotoValidityErrors
     {
         /// <summary>
         /// We could not download an image from the supplied URL, after multiple attempts.

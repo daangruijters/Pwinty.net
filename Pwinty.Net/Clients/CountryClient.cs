@@ -30,7 +30,8 @@
             var request = new RestRequest("countries");
 
             var response = await this.RestClient
-                .ExecuteAsync<IEnumerable<CountryDto>>(request);
+                .ExecuteAsync<IEnumerable<CountryDto>>(request)
+                .ConfigureAwait(false);
 
             if (response.IsSuccessful)
             {

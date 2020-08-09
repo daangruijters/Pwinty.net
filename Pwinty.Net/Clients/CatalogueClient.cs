@@ -40,7 +40,8 @@
             var request = new RestRequest($"catalogue/prodigi%20direct/destination/{countryCode.IsoCode}/prices");
 
             var response = await this.RestClient
-                .ExecuteAsync<IEnumerable<ProductPriceDto>>(request);
+                .ExecuteAsync<IEnumerable<ProductPriceDto>>(request)
+                .ConfigureAwait(false);
 
             if (response.IsSuccessful)
             {

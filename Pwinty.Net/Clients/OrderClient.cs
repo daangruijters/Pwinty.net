@@ -30,7 +30,8 @@
             var request = new RestRequest($"/orders/{id}", Method.GET);
 
             var response = await this.RestClient
-                .ExecuteGetAsync<OrderDto>(request);
+                .ExecuteGetAsync<OrderDto>(request)
+                .ConfigureAwait(false);
 
             if (response.IsSuccessful)
             {
@@ -58,7 +59,8 @@
             }
 
             var response = await this.RestClient
-                .ExecuteAsync<IEnumerable<OrderDto>>(request);
+                .ExecuteAsync<IEnumerable<OrderDto>>(request)
+                .ConfigureAwait(false);
 
             if (response.IsSuccessful)
             {
@@ -83,7 +85,8 @@
             request.AddJsonBody(order);
 
             var response = await this.RestClient
-                .ExecuteAsync<OrderDto>(request);
+                .ExecuteAsync<OrderDto>(request)
+                .ConfigureAwait(false);
 
             if (response.IsSuccessful)
             {
@@ -108,7 +111,8 @@
             request.AddJsonBody(order);
 
             var response = await this.RestClient
-                .ExecuteAsync<OrderDto>(request);
+                .ExecuteAsync<OrderDto>(request)
+                .ConfigureAwait(false);
 
             if (response.IsSuccessful)
             {
@@ -126,7 +130,8 @@
             var request = new RestRequest($"orders/{orderId}/SubmissionStatus", Method.GET);
 
             var response = await this.RestClient
-                .ExecuteAsync<OrderValidityDto>(request);
+                .ExecuteAsync<OrderValidityDto>(request)
+                .ConfigureAwait(false);
 
             if (response.IsSuccessful)
             {
@@ -167,7 +172,8 @@
             var request = new RestRequest($"orders/{orderId}/images", Method.POST);
 
             var response = await this.RestClient
-                .ExecuteAsync<ImageDto>(request);
+                .ExecuteAsync<ImageDto>(request)
+                .ConfigureAwait(false);
 
             if (response.IsSuccessful)
             {
@@ -190,7 +196,8 @@
             var request = new RestRequest($"orders/{orderId}/images/batch", Method.POST);
 
             var response = await this.RestClient
-                .ExecuteAsync<ImagesDto>(request);
+                .ExecuteAsync<ImagesDto>(request)
+                .ConfigureAwait(false);
 
             if (response.IsSuccessful)
             {
@@ -230,7 +237,8 @@
             var request = new RestRequest($"orders/{orderId}/status", Method.POST);
 
             var response = await this.RestClient
-                .ExecuteAsync(request);
+                .ExecuteAsync(request)
+                .ConfigureAwait(false);
 
             if (!response.IsSuccessful)
             {
