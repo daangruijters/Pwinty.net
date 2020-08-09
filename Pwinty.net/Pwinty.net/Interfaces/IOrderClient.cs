@@ -1,4 +1,4 @@
-﻿namespace Pwinty.Net.Interface
+﻿namespace Pwinty.Net.Interfaces
 {
     using System;
     using System.Collections.Generic;
@@ -52,21 +52,37 @@
         /// Cancel an order.
         /// </summary>
         /// <param name="orderId">Id of the order to cancel.</param>
-        /// <returns></returns>
+        /// <returns>Task that cancels an order.</returns>
         public Task CancelAsync(int orderId);
 
         /// <summary>
         /// Stage an order by setting the status to <see cref="Enums.OrderStatus.AwaitingPayment"/>.
         /// </summary>
         /// <param name="orderId">Id of the order to stage.</param>
-        /// <returns></returns>
+        /// <returns>Task that sets the status of an order to AwaitingPayment.</returns>
         public Task StageAsync(int orderId);
 
         /// <summary>
         /// Submit an order.
         /// </summary>
         /// <param name="orderId">Id of the order to submit.</param>
-        /// <returns></returns>
+        /// <returns>Task that submits an order.</returns>
         public Task SubmitAsync(int orderId);
+
+        /// <summary>
+        /// Add an image to an order.
+        /// </summary>
+        /// <param name="orderId">Id of the order to add the image to.</param>
+        /// <param name="image">Image to add to the order.</param>
+        /// <returns>The added image.</returns>
+        public Task<Image> AddImage(int orderId, Image image);
+
+        /// <summary>
+        /// Add multiple images to an order.
+        /// </summary>
+        /// <param name="orderId">Id of the order to add the image to.</param>
+        /// <param name="images">Images to add to the order.</param>
+        /// <returns>The added images.</returns>
+        public Task<IEnumerable<Image>> AddImages(int orderId, IEnumerable<Image> images);
     }
 }

@@ -68,9 +68,9 @@
         public int PriceToUser { get; set; }
 
         /// <summary>
-        /// Gets the md5 hash of the image file (when available).
+        /// Gets or sets the md5 hash of the image file (when available).
         /// </summary>
-        public string MD5Hash { get; private set; }
+        public string MD5Hash { get; set; }
 
         /// <summary>
         /// Gets the URL of the image after cropping.

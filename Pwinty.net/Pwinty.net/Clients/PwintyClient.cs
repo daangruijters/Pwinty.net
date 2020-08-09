@@ -1,7 +1,7 @@
 ﻿namespace Pwinty.Net.Clients
 {
     using System;
-    using Pwinty.Net.Interface;
+    using Pwinty.Net.Interfaces;
 
     /// <inheritdoc/>
     public class PwintyClient : IPwintyClient

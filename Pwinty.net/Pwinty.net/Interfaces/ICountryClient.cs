@@ -1,4 +1,4 @@
-﻿namespace Pwinty.Net.Interface
+﻿namespace Pwinty.Net.Interfaces
 {
     using System.Collections.Generic;
     using System.Threading.Tasks;

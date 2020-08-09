@@ -1,4 +1,4 @@
-﻿namespace Pwinty.Net.Interface
+﻿namespace Pwinty.Net.Interfaces
 {
     /// <summary>
     /// Client that connects to the Pwinty API. See https://www.pwinty.com/api/ for full documentation of the API.

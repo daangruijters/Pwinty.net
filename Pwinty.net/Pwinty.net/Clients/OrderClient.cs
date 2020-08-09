@@ -6,7 +6,7 @@
     using System.Threading.Tasks;
     using Pwinty.Net.DTO;
     using Pwinty.Net.Enums;
-    using Pwinty.Net.Interface;
+    using Pwinty.Net.Interfaces;
     using Pwinty.Net.Model;
     using RestSharp;
 
@@ -156,6 +156,64 @@
             await this.UpdateStatus(orderId, OrderStatus.Submitted);
         }
 
+        /// <inheritdoc/>
+        public async Task<Image> AddImage(int orderId, Image image)
+        {
+            if (image == null)
+            {
+                throw new ArgumentNullException(nameof(image), $"{nameof(image)} is null.");
+            }
+
+            var request = new RestRequest($"orders/{orderId}/images", Method.POST);
+
+            var response = await this.RestClient
+                .ExecuteAsync<ImageDto>(request);
+
+            if (response.IsSuccessful)
+            {
+                return new Image(response.Data);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        /// <inheritdoc/>
+        public async Task<IEnumerable<Image>> AddImages(int orderId, IEnumerable<Image> images)
+        {
+            if (images == null || !images.Any())
+            {
+                throw new ArgumentNullException(nameof(images), $"{nameof(images)} is null.");
+            }
+
+            var request = new RestRequest($"orders/{orderId}/images/batch", Method.POST);
+
+            var response = await this.RestClient
+                .ExecuteAsync<ImagesDto>(request);
+
+            if (response.IsSuccessful)
+            {
+                return response.Data.Items.Select(dto => new Image(dto));
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Evaluate whether an OrderStatus is valid to use when updating an order.
+        /// </summary>
+        /// <param name="status">Status to evaluate.</param>
+        /// <returns>A value indicating whether the orderstatus is valid.</returns>
+        private static bool IsValidUpdateStatus(OrderStatus status)
+        {
+            return status == OrderStatus.Cancelled
+                || status == OrderStatus.AwaitingPayment
+                || status == OrderStatus.Submitted;
+        }
+
         /// <summary>
         /// Update the status of an order.
         /// </summary>
@@ -164,7 +222,7 @@
         /// <returns>A value indicating whether the status update was successful.</returns>
         private async Task UpdateStatus(int orderId, OrderStatus status)
         {
-            if (!this.IsValidUpdateStatus(status))
+            if (!IsValidUpdateStatus(status))
             {
                 throw new ArgumentException("Status is not a valid update status.", nameof(status));
             }
@@ -178,18 +236,6 @@
             {
                 throw new NotImplementedException("#3 Add exceptions");
             }
-        }
-
-        /// <summary>
-        /// Evaluate whether an OrderStatus is valid to use when updating an order.
-        /// </summary>
-        /// <param name="status">Status to evaluate.</param>
-        /// <returns>A value indicating whether the orderstatus is valid.</returns>
-        private bool IsValidUpdateStatus(OrderStatus status)
-        {
-            return status == OrderStatus.Cancelled
-                || status == OrderStatus.AwaitingPayment
-                || status == OrderStatus.Submitted;
         }
     }
 }

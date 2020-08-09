@@ -6,7 +6,7 @@
     using System.Text;
     using System.Threading.Tasks;
     using Pwinty.Net.DTO;
-    using Pwinty.Net.Interface;
+    using Pwinty.Net.Interfaces;
     using Pwinty.Net.Model;
     using RestSharp;
 
