@@ -23,8 +23,8 @@ jobs:
       run: dotnet build --configuration Release --no-restore
     - name: Test
       run: dotnet test --no-restore --verbosity normal
-    - name: Public Pwinty.Net
-      uses: brandedoutcast/public-nuget@v2.5.2
+    - name: Publish NuGet
+      uses: brandedoutcast/publish-nuget@v2.5.5
       with:
         PROJECT_FILE_PATH: Pwinty.net/Pwinty.Net/Pwinty.Net.csproj
         NUGET_KEY: ${{secrets.NUGET_API_KEY}}
