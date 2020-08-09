@@ -1,6 +1,7 @@
 ﻿namespace Pwinty.Net.Model
 {
     using System;
+    using Pwinty.Net.DTO;
 
     /// <summary>
     /// Shipment.
@@ -8,28 +9,41 @@
     public class Shipment
     {
         /// <summary>
-        /// Gets or sets the unique identifier for this shipment. Null if order hasn't been submitted.
+        /// Initializes a new instance of the <see cref="Shipment"/> class.
         /// </summary>
-        public string ShipmentId { get; set; }
+        /// <param name="dto">Dto to base the class on.</param>
+        internal Shipment(ShipmentDto dto)
+        {
+            this.ShipmentId = dto.ShipmentId;
+            this.IsTracked = dto.IsTracked;
+            this.TrackingNumber = dto.TrackingNumber;
+            this.TrackingUrl = new Uri(dto.TrackingUrl);
+            this.EarliestEstimatedArrivalDate = dto.EarliestEstimatedArrivalDate;
+        }
 
         /// <summary>
-        /// Gets or sets a value indicating whether the order will be tracked.
+        /// Gets the unique identifier for this shipment. Null if order hasn't been submitted.
         /// </summary>
-        public bool IsTracked { get; set; }
+        public string ShipmentId { get; private set; }
 
         /// <summary>
-        /// Gets or sets the tracking number, when available.
+        /// Gets a value indicating whether the order will be tracked.
         /// </summary>
-        public string TrackingNumber { get; set; }
+        public bool IsTracked { get; private set; }
 
         /// <summary>
-        /// Gets or sets the tracking URL, when available.
+        /// Gets the tracking number, when available.
         /// </summary>
-        public Uri TrackingUrl { get; set; }
+        public string TrackingNumber { get; private set; }
 
         /// <summary>
-        /// Gets or sets the estimated earliest arrival of shipment.
+        /// Gets the tracking URL, when available.
         /// </summary>
-        public DateTime EarliestEstimatedArrivalDate { get; set; }
+        public Uri TrackingUrl { get; private set; }
+
+        /// <summary>
+        /// Gets the estimated earliest arrival of shipment.
+        /// </summary>
+        public DateTime EarliestEstimatedArrivalDate { get; private set; }
     }
 }

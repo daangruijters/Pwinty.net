@@ -27,7 +27,7 @@ namespace Pwinty.Net.DTO
         public ShippingInfoDto ShippingInfo { get; set; }
         public PaymentOption Payment { get; set; }
         public string PaymentUrl { get; set; }
-        public List<ImageInfoDto> Images { get; set; }
+        public List<ImageDto> Images { get; set; }
         public string MerchantOrderId { get; set; }
         public ShippingMethod PreferredShippingMethod { get; set; }
         public DateTime Created { get; set; }

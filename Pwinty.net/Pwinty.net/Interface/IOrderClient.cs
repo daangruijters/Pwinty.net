@@ -3,19 +3,20 @@
     using System;
     using System.Collections.Generic;
     using System.Net;
+    using System.Threading.Tasks;
     using Pwinty.Net.Model;
 
     /// <summary>
     /// Abstraction of the <see cref="OrderClient"/>.
     /// </summary>
-    internal interface IOrderClient
+    public interface IOrderClient
     {
         /// <summary>
         /// Get an existing order.
         /// </summary>
         /// <param name="id">Id of the order to get.</param>
         /// <returns>Order.</returns>
-        public Order Get(string id);
+        public Task<Order> GetAsync(string id);
 
         /// <summary>
         /// Retrieves multiple orders, most recent first. Note that calls that return potentially more than one result
@@ -24,45 +25,48 @@
         /// <param name="limit">Number of orders to return. Default 100, max 250.</param>
         /// <param name="start">Start position used for paginating order list. Default 0.</param>
         /// <returns>Order objects.</returns>
-        public IEnumerable<Order> List(ushort? limit = 100, ushort? start = 0);
+        public Task<IEnumerable<Order>> ListAsync(ushort? limit = 100, ushort? start = 0);
 
         /// <summary>
         /// Create an order.
         /// </summary>
         /// <param name="order">Order to create.</param>
         /// <returns>Created order.</returns>
-        public Order Create(Order order);
+        public Task<Order> CreateAsync(Order order);
 
         /// <summary>
         /// Update an order.
         /// </summary>
         /// <param name="order">Order to update..</param>
         /// <returns>Updated order.</returns>
-        public Order Update(Order order);
+        public Task<Order> UpdateAsync(Order order);
 
         /// <summary>
         /// Before submitting an order, you can validate it to make sure it's good to go, or we can tell you why it isn't.
         /// </summary>
         /// <param name="orderId">Id of the order to validate.</param>
         /// <returns>Object containing the validity of an order.</returns>
-        public OrderValidity Validate(int orderId);
+        public Task<OrderValidity> ValidateAsync(int orderId);
 
         /// <summary>
         /// Cancel an order.
         /// </summary>
         /// <param name="orderId">Id of the order to cancel.</param>
-        public void CancelOrder(int orderId);
+        /// <returns></returns>
+        public Task CancelAsync(int orderId);
 
         /// <summary>
-        /// Stage an order by setting the status to <see cref="OrderStatus.AwaitingPayment"/>.
+        /// Stage an order by setting the status to <see cref="Enums.OrderStatus.AwaitingPayment"/>.
         /// </summary>
         /// <param name="orderId">Id of the order to stage.</param>
-        public void StageOrder(int orderId);
+        /// <returns></returns>
+        public Task StageAsync(int orderId);
 
         /// <summary>
         /// Submit an order.
         /// </summary>
         /// <param name="orderId">Id of the order to submit.</param>
-        public void SubmitOrder(int orderId);
+        /// <returns></returns>
+        public Task SubmitAsync(int orderId);
     }
 }
