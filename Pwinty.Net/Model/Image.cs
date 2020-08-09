@@ -13,11 +13,36 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="Image"/> class.
         /// </summary>
+        /// <param name="sku">An identification code of the product associated with this image.</param>
+        /// <param name="imageUrl">URL of the iamge.</param>
+        /// <param name="copies">Number of copies of the image to include in the order.</param>
+        /// <param name="imageSizing">How the image should be resized when printing.</param>
+        public Image(string sku, Uri imageUrl, uint copies, ImageSizing imageSizing)
+        {
+            if (string.IsNullOrEmpty(sku))
+            {
+                throw new ArgumentException($"{nameof(sku)} is null or empty.", nameof(sku));
+            }
+
+            if (imageUrl == null)
+            {
+                throw new ArgumentNullException(nameof(imageUrl), $"{nameof(imageUrl)} is null.");
+            }
+
+            this.SKU = sku;
+            this.ImageUrl = imageUrl;
+            this.Copies = copies;
+            this.Sizing = imageSizing;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Image"/> class.
+        /// </summary>
         /// <param name="dto">Dto to base the image on.</param>
         internal Image(ImageDto dto)
         {
             this.Id = dto.Id;
-            this.Url = new Uri(dto.Url);
+            this.ImageUrl = new Uri(dto.Url);
             this.Status = dto.Status;
             this.Copies = dto.Copies;
             this.Sizing = dto.Sizing;
@@ -39,7 +64,7 @@
         /// <summary>
         /// Gets or sets the image URL If image is to be downloaded by Pwinty, the image's URL.
         /// </summary>
-        public Uri Url { get; set; }
+        public Uri ImageUrl { get; set; }
 
         /// <summary>
         /// Gets the current status of the image.
@@ -49,7 +74,7 @@
         /// <summary>
         /// Gets or sets the number of copies of the image to include in the order.
         /// </summary>
-        public int Copies { get; set; }
+        public uint Copies { get; set; }
 
         /// <summary>
         /// Gets or sets how the image should be resized when printing.

@@ -1,7 +1,6 @@
 ﻿namespace Pwinty.Net.Model
 {
     using System;
-    using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
     using Pwinty.Net.DTO;
@@ -12,6 +11,29 @@
     /// </summary>
     public class Order
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Order"/> class.
+        /// </summary>
+        /// <param name="recipientName">The name of to whom the order will be addressed.</param>
+        /// <param name="country">The country of the recipient.</param>
+        /// <param name="preferredShippingMethod">The preferred shipping method.</param>
+        public Order(string recipientName, Country country, ShippingMethod preferredShippingMethod)
+        {
+            if (string.IsNullOrEmpty(recipientName))
+            {
+                throw new ArgumentException($"{nameof(recipientName)} is null or empty.", nameof(recipientName));
+            }
+
+            if (country == null)
+            {
+                throw new ArgumentNullException(nameof(country), $"{nameof(country)} is null.");
+            }
+
+            this.RecipientName = recipientName;
+            this.Country = country;
+            this.PreferredShippingMethod = preferredShippingMethod;
+        }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="Order"/> class.
         /// </summary>
@@ -29,7 +51,7 @@
             this.AddressTownOrCity = dto.AddressTownOrCity;
             this.StateOrCountry = dto.StateOrCountry;
             this.PostalOrZipCode = dto.PostalOrZipCode;
-            this.CountryCode = new Country(dto.CountryCode);
+            this.Country = new Country(dto.CountryCode);
             this.MobileTelephone = dto.MobileTelephone;
             this.Price = dto.Price;
             this.Status = dto.Status;
@@ -107,9 +129,9 @@
         public string PostalOrZipCode { get; set; }
 
         /// <summary>
-        /// Gets or sets the two-letter country code of the recipient.
+        /// Gets or sets the country of the recipient.
         /// </summary>
-        public Country CountryCode { get; set; }
+        public Country Country { get; set; }
 
         /// <summary>
         /// Gets or sets the recipients mobile phone number.

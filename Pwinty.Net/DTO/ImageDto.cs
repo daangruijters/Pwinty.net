@@ -11,7 +11,7 @@ namespace Pwinty.Net.DTO
         public int Id { get; set; }
         public string Url { get; set; }
         public ImageStatus Status { get; set; }
-        public int Copies { get; set; }
+        public uint Copies { get; set; }
         public ImageSizing Sizing { get; set; }
         public int Price { get; set; }
         public int PriceToUser { get; set; }
