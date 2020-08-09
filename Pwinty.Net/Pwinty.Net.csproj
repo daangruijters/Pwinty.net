@@ -6,7 +6,7 @@
     <AssemblyName>Pwinty.Net</AssemblyName>
     <UserSecretsId>dd147e4c-6185-4f6f-8a54-a139a2bec504</UserSecretsId>
     <PackageIcon>pwinty-logo.png</PackageIcon>
-    <Version>3.0.1</Version>
+    <Version>3.0.2</Version>
     <Authors>daangruijters</Authors>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageProjectUrl>https://www.pwinty.com/</PackageProjectUrl>
@@ -17,6 +17,8 @@
     <NeutralLanguage>en</NeutralLanguage>
     <PackageLicenseExpression></PackageLicenseExpression>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <AssemblyVersion>3.0.2.0</AssemblyVersion>
+    <FileVersion>3.0.2.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
