@@ -15,6 +15,6 @@
         /// <param name="countryCode">Countrycode of the destination.</param>
         /// <param name="skus">Array of SKUs of products to check.</param>
         /// <returns>Prices.</returns>
-        public Task<IEnumerable<ProductPrice>> FetchPricesAsync(Country countryCode, string[] skus);
+        Task<IEnumerable<ProductPrice>> FetchPricesAsync(Country countryCode, string[] skus);
     }
 }

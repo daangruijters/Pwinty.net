@@ -19,8 +19,8 @@
         {
             this.Id = dto.Id;
             this.IsValid = dto.IsValid;
-            this.InvalidPhotos = dto.InvalidPhotos.Select(dto => new PhotoValidity(dto));
-            this.GeneralErrors = (OrderValidityErrors)Enum.Parse(typeof(OrderValidityErrors), string.Join(',', dto.GeneralErrors));
+            this.InvalidPhotos = dto.InvalidPhotos.Select(o => new PhotoValidity(o));
+            this.GeneralErrors = (OrderValidityErrors)Enum.Parse(typeof(OrderValidityErrors), string.Join(",", dto.GeneralErrors));
         }
 
         /// <summary>

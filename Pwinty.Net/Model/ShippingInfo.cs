@@ -16,7 +16,7 @@
         internal ShippingInfo(ShippingInfoDto dto)
         {
             this.Price = dto.Price;
-            this.Shipments = dto.Shipments.Select(dto => new Shipment(dto));
+            this.Shipments = dto.Shipments.Select(s => new Shipment(s));
         }
 
         /// <summary>

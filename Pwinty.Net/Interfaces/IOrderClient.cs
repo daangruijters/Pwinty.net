@@ -16,7 +16,7 @@
         /// </summary>
         /// <param name="id">Id of the order to get.</param>
         /// <returns>Order.</returns>
-        public Task<Order> GetAsync(string id);
+        Task<Order> GetAsync(string id);
 
         /// <summary>
         /// Retrieves multiple orders, most recent first. Note that calls that return potentially more than one result
@@ -25,49 +25,49 @@
         /// <param name="limit">Number of orders to return. Default 100, max 250.</param>
         /// <param name="start">Start position used for paginating order list. Default 0.</param>
         /// <returns>Order objects.</returns>
-        public Task<IEnumerable<Order>> ListAsync(ushort? limit = 100, ushort? start = 0);
+        Task<IEnumerable<Order>> ListAsync(ushort? limit = 100, ushort? start = 0);
 
         /// <summary>
         /// Create an order.
         /// </summary>
         /// <param name="order">Order to create.</param>
         /// <returns>Created order.</returns>
-        public Task<Order> CreateAsync(Order order);
+        Task<Order> CreateAsync(Order order);
 
         /// <summary>
         /// Update an order.
         /// </summary>
         /// <param name="order">Order to update..</param>
         /// <returns>Updated order.</returns>
-        public Task<Order> UpdateAsync(Order order);
+        Task<Order> UpdateAsync(Order order);
 
         /// <summary>
         /// Before submitting an order, you can validate it to make sure it's good to go, or we can tell you why it isn't.
         /// </summary>
         /// <param name="orderId">Id of the order to validate.</param>
         /// <returns>Object containing the validity of an order.</returns>
-        public Task<OrderValidity> ValidateAsync(int orderId);
+        Task<OrderValidity> ValidateAsync(int orderId);
 
         /// <summary>
         /// Cancel an order.
         /// </summary>
         /// <param name="orderId">Id of the order to cancel.</param>
         /// <returns>Task that cancels an order.</returns>
-        public Task CancelAsync(int orderId);
+        Task CancelAsync(int orderId);
 
         /// <summary>
         /// Stage an order by setting the status to <see cref="Enums.OrderStatus.AwaitingPayment"/>.
         /// </summary>
         /// <param name="orderId">Id of the order to stage.</param>
         /// <returns>Task that sets the status of an order to AwaitingPayment.</returns>
-        public Task StageAsync(int orderId);
+        Task StageAsync(int orderId);
 
         /// <summary>
         /// Submit an order.
         /// </summary>
         /// <param name="orderId">Id of the order to submit.</param>
         /// <returns>Task that submits an order.</returns>
-        public Task SubmitAsync(int orderId);
+        Task SubmitAsync(int orderId);
 
         /// <summary>
         /// Add an image to an order.
@@ -75,7 +75,7 @@
         /// <param name="orderId">Id of the order to add the image to.</param>
         /// <param name="image">Image to add to the order.</param>
         /// <returns>The added image.</returns>
-        public Task<Image> AddImage(int orderId, Image image);
+        Task<Image> AddImage(int orderId, Image image);
 
         /// <summary>
         /// Add multiple images to an order.
@@ -83,6 +83,6 @@
         /// <param name="orderId">Id of the order to add the image to.</param>
         /// <param name="images">Images to add to the order.</param>
         /// <returns>The added images.</returns>
-        public Task<IEnumerable<Image>> AddImages(int orderId, IEnumerable<Image> images);
+        Task<IEnumerable<Image>> AddImages(int orderId, IEnumerable<Image> images);
     }
 }

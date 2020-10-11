@@ -8,16 +8,16 @@
         /// <summary>
         /// Gets the catalogue related operations.
         /// </summary>
-        public ICatalogueClient Catalogue { get; }
+        ICatalogueClient Catalogue { get; }
 
         /// <summary>
         /// Gets the country related operations.
         /// </summary>
-        public ICountryClient Countries { get; }
+        ICountryClient Countries { get; }
 
         /// <summary>
         /// Gets the order related operations.
         /// </summary>
-        public IOrderClient Orders { get; }
+        IOrderClient Orders { get; }
     }
 }

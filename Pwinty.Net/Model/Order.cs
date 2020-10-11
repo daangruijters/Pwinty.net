@@ -58,7 +58,7 @@
             this.ShippingInfo = new ShippingInfo(dto.ShippingInfo);
             this.Payment = dto.Payment;
             this.PaymentUrl = new Uri(dto.PaymentUrl);
-            this.Images = dto.Images.Select(dto => new Image(dto));
+            this.Images = dto.Images.Select(d => new Image(d));
             this.MerchantOrderId = dto.MerchantOrderId;
             this.PreferredShippingMethod = dto.PreferredShippingMethod;
             this.Created = dto.Created;

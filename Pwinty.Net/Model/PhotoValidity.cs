@@ -17,8 +17,8 @@
         internal PhotoValidity(PhotoValidityDto dto)
         {
             this.Id = dto.Id;
-            this.Errors = (PhotoValidityErrors)Enum.Parse(typeof(PhotoValidityErrors), string.Join(',', dto.Errors));
-            this.Warnings = (PhotoValidityWarnings)Enum.Parse(typeof(PhotoValidityWarnings), string.Join(',', dto.Warnings));
+            this.Errors = (PhotoValidityErrors)Enum.Parse(typeof(PhotoValidityErrors), string.Join(",", dto.Errors));
+            this.Warnings = (PhotoValidityWarnings)Enum.Parse(typeof(PhotoValidityWarnings), string.Join(",", dto.Warnings));
         }
 
         /// <summary>

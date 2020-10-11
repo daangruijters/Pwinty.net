@@ -13,6 +13,6 @@
         /// Returns all countries available in the system.
         /// </summary>
         /// <returns>List of all countries available in the system.</returns>
-        public Task<IEnumerable<Country>> ListAllAsync();
+        Task<IEnumerable<Country>> ListAllAsync();
     }
 }
